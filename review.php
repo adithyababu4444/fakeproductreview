@@ -22,7 +22,7 @@ session_start();
       <ul class="navbar-nav">
        
         <li class="nav-item">
-          <a class="nav-link" href="userproduct.php">PRODUCT</a>
+          <a class="nav-link" href="userproduct.php">PRODUCT SEARCH</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="review.php">REVIEW ENTRY</a>
@@ -48,10 +48,6 @@ session_start();
 <table class="table">
 
 
-<tr>
-    <td>ip</td>
-    <td><input name="uip" class="form-control" type="text"></td>
-</tr>
 <tr>
     <td>review</td>
     <td><input name="ureview" class="form-control" type="text"></td>
@@ -84,8 +80,29 @@ session_start();
 <?php
 if(isset($_POST["btn"]))
 {
+
+  $ipaddress = '';
+  if (isset($_SERVER['REMOTE_ADDR']))
+      $ipaddress = $_SERVER['REMOTE_ADDR'];
+  else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+      $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+  else if(isset($_SERVER['HTTP_X_FORWARDED']))
+      $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+  else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+      $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+  else if(isset($_SERVER['HTTP_FORWARDED']))
+      $ipaddress = $_SERVER['HTTP_FORWARDED'];
+  else if(isset($_SERVER['HTTP_CLIENT_IP']))
+      $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+  
+  
+$localIP = getHostByName(getHostName());
+      // echo $ipaddress;
+
+
+
     $userid=$_SESSION['uid'];
-    $ip=$_POST["uip"];
+    $ip=$localIP ;
     $review=$_POST["ureview"];
     $type=$_POST["utype"];
     $status=$_POST["ustatus"];

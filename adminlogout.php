@@ -23,6 +23,9 @@
         <li class="nav-item">
           <a class="nav-link" href="productdetail.php">Product Search</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="product_update.php">Product Update</a>
+        </li>
         
         <li class="nav-item">
           <a class="nav-link" href="adminlogout.php">log out</a>

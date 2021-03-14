@@ -24,6 +24,9 @@
           <a class="nav-link" href="productdetail.php">Product Search</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="product_update.php">Product Update</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="userdetail.php">User Search</a>
         </li>
         <li class="nav-item">
@@ -87,7 +90,7 @@ echo "<table class='table'>
 </tr>
 <tr>
 <td>image<td>
-<td>$getimage</td>
+<td><img src='./$getimage' alt='' class='img-thumbnail' height=400 width=200></td>
 </tr>
 </table>";
 

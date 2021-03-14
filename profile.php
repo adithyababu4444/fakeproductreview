@@ -22,7 +22,7 @@ session_start();
       <ul class="navbar-nav">
        
         <li class="nav-item">
-          <a class="nav-link" href="userproduct.php">PRODUCT</a>
+          <a class="nav-link" href="userproduct.php">PRODUCT SEARCH</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="review.php">REVIEW ENTRY</a>

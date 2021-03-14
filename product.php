@@ -24,6 +24,9 @@
           <a class="nav-link" href="productdetail.php">Product Search</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="product_update.php">Product Update</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="userdetail.php">User Search</a>
         </li>
         <li class="nav-item">
@@ -40,7 +43,7 @@
 <div class="col col-12 col-sm-2">
 </div>
 <div class="col col-12 col-sm-8">
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
 <table class="table">
 
 <tr>
@@ -53,7 +56,7 @@
 </tr>
 <tr>
     <td>image</td>
-    <td><input name="uimg" class="form-control" type="file"></td>
+    <td><input name="fileToUpload" class="form-control" type="file"></td>
 </tr>
 <tr>
     <td></td>
@@ -70,17 +73,32 @@
 <?php
 if(isset($_POST["btn"]))
 {
+
+  $connection=new mysqli("localhost","root","","fakeproductreview");
+
     $productname=$_POST["uproname"];
     $specs=$_POST["uspecs"];
-    $image=$_POST["uimg"];
+
+    $target_dir = "images/";
+    $target_file = $target_dir . rand(999, 9999) . basename($_FILES["fileToUpload"]["name"]);
+    // $Image = $connection->real_escape_string($target_file);
+    $testage = $connection->real_escape_string($target_file);
+
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+
+      echo "<script>alert('File Uploaded successfully')</script>";
+
+        // echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+    } else {
+      echo "<script>alert('File Uploading Failed')</script>";
+    }
 
 
-    $connection=new mysqli("localhost","root","","fakeproductreview");
-    $sql="INSERT INTO  `products`( `productname`, `specs`, `image`) VALUES ('$productname','$specs','$image')";
+    $sql="INSERT INTO  `products`( `productname`, `specs`, `image`) VALUES ('$productname','$specs','$testage')";
      $result=$connection->query($sql);
     if($result===true)
     {
-        echo "<script>alert('inserted successfully')</script>";
+        echo "<script>alert('Product added successfully')</script>";
 
     }
     else

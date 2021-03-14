@@ -19,10 +19,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="product.php">Product Entry</a>
+          <a class="nav-link active" aria-current="page" href="product.php">Product entry</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="productdetail.php">Product Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="product_update.php">Product Update</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="userdetail.php">User Search</a>
